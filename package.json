@@ -1,0 +1,22 @@
+{
+  "name": "learn-angular",
+  "version": "1.0.0",
+  "description": "Learning angular with typescript using gulp, npm and bower",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vermaharsh/learn-angular.git"
+  },
+  "author": "Harsh Verma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vermaharsh/learn-angular/issues"
+  },
+  "homepage": "https://github.com/vermaharsh/learn-angular#readme",
+  "dependencies": {
+    "gulp": "^3.9.0"
+  }
+}

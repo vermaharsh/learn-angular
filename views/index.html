@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html ng-app="testApp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <!-- styles:css -->
+    <!-- endinject -->
+
+    <!-- vendors:js -->
+    <!-- endinject -->
+
+    <!-- domain:js -->
+    <!-- endinject -->
+
+    <!-- app:js -->
+    <!-- endinject -->
+
+</head>
+<body>
+    <div id="wrap">
+        <div id="main" class="container">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand active" href="#/">TypeScript SPA</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/add" class="active">Add Post<i class="fa fa-info-circle fa-fw pull-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <ng-view></ng-view>
+        </div>
+    </div>
+</body>
+</html>
