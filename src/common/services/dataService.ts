@@ -1,3 +1,7 @@
+/// <reference path="../../../typings/main.d.ts" />
+/// <reference path="../../domain/IEntity.ts" />
+
+
 module app.common.services {
     interface IDataService {
         get(resource: string): ng.IPromise<app.domain.EntityBase[]>;
@@ -19,7 +23,7 @@ module app.common.services {
 
        get(resource: string): ng.IPromise<app.domain.EntityBase[]> {
             var self = this;
-            var deferre =self.qService.defer();
+            var deferred = self.qService.defer();
             self.httpService.get(resource).then(function (result: any) {
                deferred.resolve(result.data);
             }, function (error) {

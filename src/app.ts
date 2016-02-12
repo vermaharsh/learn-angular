@@ -1,3 +1,5 @@
+/// <reference path="../typings/main.d.ts" />
+
 module app {
     class Config {
         constructor($routeProvider: ng.route.IRouteProvider) {

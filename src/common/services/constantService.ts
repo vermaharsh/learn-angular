@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/main.d.ts" />
+
 module app.common.services {
 
     interface IConstant {

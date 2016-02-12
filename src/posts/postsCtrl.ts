@@ -1,3 +1,8 @@
+/// <reference path="../common/services/ConstantService.ts" />
+/// <reference path="../common/services/DataService.ts" />
+/// <reference path="../domain/Post.ts" />
+/// <reference path="../../typings/main.d.ts" />
+
 module app.postList {
 
     interface IPostsViewModel {

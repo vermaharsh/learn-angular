@@ -1,3 +1,5 @@
+/// <reference path="IEntity.ts" />
+
 module app.domain {
     export interface IPost {
         Id?: number;
