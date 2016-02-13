@@ -29,6 +29,6 @@ module app.postAdd {
         }
     }
 
-    angular.module('testAdd')
+    angular.module('testApp')
         .controller('PostAddCtrl', PostAddCtrl);
 }

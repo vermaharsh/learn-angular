@@ -15,13 +15,21 @@ gulp.task('clean-build', function() {
         console.log('Deleted files and folders:\n', paths.join('\n')));
 });
 
-gulp.task('copy-html', ['clean-build'], function() {
+gulp.task('copy-posts-html', ['clean-build'], function() {
+    var target = gulp.src('./src/posts/*.html');
+    return target.pipe(gulp.dest('.build/posts/'));
+});
+
+gulp.task('copy-index-html', ['clean-build'], function() {
     var target = gulp.src('./views/index.html');
-    return target.pipe(gulp.dest('.build/views/'));
+    return target.pipe(gulp.dest('.build/'));
+});
+
+gulp.task('copy-html', ['copy-posts-html', 'copy-index-html'], function() {
 });
  
 gulp.task('css-task', ['copy-html'], function () {
-    var target = gulp.src('.build/views/index.html');
+    var target = gulp.src('.build/index.html');
  
     var customCssStream = gulp.src(['./bower_components/bootstrap/dist/css/bootstrap.min.css',
                                     './styles/site.css']);
@@ -32,11 +40,11 @@ gulp.task('css-task', ['copy-html'], function () {
             .pipe(concat('appStyles.css'))
             .pipe(gulp.dest('.build/css')), { name: 'styles' })
             )
-        .pipe(gulp.dest('.build/views/'));
+        .pipe(gulp.dest('.build/'));
 });
 
 gulp.task('vendors-task', ['css-task'], function () {
-    var target = gulp.src('.build/views/index.html');
+    var target = gulp.src('.build/index.html');
  
     var vendorStream = gulp.src(['./bower_components/angular-route/angular-route.js',
                                  './bower_components/angular/angular.js',
@@ -49,7 +57,7 @@ gulp.task('vendors-task', ['css-task'], function () {
                         .pipe(angularFilesort())
                         .pipe(concat('vendors.js'))
                         .pipe(gulp.dest('.build/vendors')), { name: 'vendors' }))
-        .pipe(gulp.dest('.build/views/'));
+        .pipe(gulp.dest('.build/'));
 });
 
 gulp.task('ts-compile-domain', ['clean-build'], function() {
@@ -74,7 +82,7 @@ gulp.task('ts-compile', ['ts-compile-domain', 'ts-compile-app'], function() {
 });
 
 gulp.task('spa-task', ['ts-compile', 'vendors-task'], function () {
-    var target = gulp.src('.build/views/index.html');
+    var target = gulp.src('.build/index.html');
  
     var appDomainStream = gulp.src('.build/src-js/domain.js');
     var appStream = gulp.src('.build/src-js/app.js');
@@ -85,11 +93,11 @@ gulp.task('spa-task', ['ts-compile', 'vendors-task'], function () {
                         .pipe(concat('domain.js'))
                         .pipe(uglify())
                         .pipe(gulp.dest('.build/spa')), { name: 'domain' }))
-                        .pipe(gulp.dest('.build/views/'))
+                        .pipe(gulp.dest('.build/'))
                 .pipe(inject(appStream
                         .pipe(print())
                         .pipe(concat('app.js'))
                         .pipe(uglify())
                         .pipe(gulp.dest('.build/spa')), { name: 'app' }))
-                        .pipe(gulp.dest('.build/views/'))
+                        .pipe(gulp.dest('.build/'))
 });
