@@ -16,16 +16,16 @@ The above blog provides detail for installing each of them except typings, thoug
 ## Build
 You need to install all the required packages locally before building the project. To do so run the following commands from your git project root folder.
 
-1. Install bower components
+1. Install bower components  
 ```$bower install```
 
-2. Install TypeScript definitions
+2. Install TypeScript definitions  
 ```$typings install```
 
-3. Install package dependencies
+3. Install package dependencies  
 ```$npm install```
 
-Now, you can run the gulp build task to build the project. It will place the built files under .build folder under the root folder of the git project.
+Now, you can run the gulp build task to build the project. It will place the built files under .build folder under the root folder of the git project.  
 ```$gulp build```
 
 _ENJOY!!!_
